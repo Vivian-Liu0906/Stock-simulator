@@ -57,3 +57,68 @@ button:hover { background: #00b894; }
     margin-top: 16px;
     color: #aaa;
 }
+
+.portfolio-bar {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #00d4aa;
+}
+
+.trade-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.trade-bar input {
+    width: 100px;
+}
+
+.buy-btn {
+    background: #00d4aa;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sell-btn {
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#tradeMessage {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #00d4aa;
+}
+
+.holdings-card {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #1e1e2e;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.holdings-card h2 {
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+}
+
+.holding-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    color: #ccc;
+}
