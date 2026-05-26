@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Stock Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <h1>📈 Stock Simulator</h1>
-    <p>Welcome! 虚拟投资平台即将上线。</p>
+
+    <div class="search-bar">
+        <input type="text" id="symbolInput" placeholder="输入股票代码 (e.g. AAPL)" />
+        <button onclick="searchStock()">搜索</button>
+    </div>
+
+    <div class="stock-card" id="stockCard">
+        <div class="stock-name" id="stockName"></div>
+        <div class="stock-price" id="stockPrice"></div>
+        <div class="stock-change" id="stockChange"></div>
+        <div class="stock-details">
+            <span>今日最高: <strong id="stockHigh"></strong></span>
+            <span>今日最低: <strong id="stockLow"></strong></span>
+        </div>
+    </div>
+
+    <script>
+        async function searchStock() {
+            const symbol = document.getElementById('symbolInput').value.toUpperCase();
+            if (!symbol) return;
+
+            const response = await fetch(`/stock/${symbol}`);
+            const data = await response.json();
+
+            document.getElementById('stockName').textContent = data.name;
+            document.getElementById('stockPrice').textContent = `$${data.price}`;
+
+            const changeEl = document.getElementById('stockChange');
+            const change = data.change.toFixed(2);
+            changeEl.textContent = `${change > 0 ? '▲' : '▼'} ${Math.abs(change)}%`;
+            changeEl.className = `stock-change ${change > 0 ? 'positive' : 'negative'}`;
+
+            document.getElementById('stockHigh').textContent = `$${data.high}`;
+            document.getElementById('stockLow').textContent = `$${data.low}`;
+
+            document.getElementById('stockCard').style.display = 'block';
+        }
+
+        document.getElementById('symbolInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchStock();
+        });
+    </script>
 </body>
 </html>
