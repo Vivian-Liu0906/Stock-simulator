@@ -18,6 +18,16 @@
         <button onclick="searchStock()">搜索</button>
     </div>
 
+    <div class="quick-picks">
+    <span>热门股票：</span>
+    <button onclick="quickSearch('AAPL')">🍎 苹果</button>
+    <button onclick="quickSearch('TSLA')">⚡ 特斯拉</button>
+    <button onclick="quickSearch('GOOGL')">🔍 谷歌</button>
+    <button onclick="quickSearch('MSFT')">🪟 微软</button>
+    <button onclick="quickSearch('NVDA')">🎮 英伟达</button>
+    <button onclick="quickSearch('AMZN')">📦 亚马逊</button>
+</div>
+
     <div class="stock-card" id="stockCard">
         <div class="stock-name" id="stockName"></div>
         <div class="stock-price" id="stockPrice"></div>

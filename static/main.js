@@ -109,3 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     loadPortfolio();
 });
+
+function quickSearch(symbol) {
+    document.getElementById('symbolInput').value = symbol;
+    searchStock();
+}
